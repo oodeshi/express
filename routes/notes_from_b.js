@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
 const database = client.db('notes');
 const notes = database.collection('notes');
 
-// idが１のドキュメントを取得
-const query = { id: 2 };
-const note = await notes.findOne(query);
+
+// 全てのドキュメントを取得
+const note = await notes.find({}).toArray();
 
 res.json(note);
 })
